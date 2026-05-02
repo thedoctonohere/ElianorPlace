@@ -42,6 +42,34 @@ body{
 .corda-baixo{
   bottom: 0;
 }
+  
+  .janela{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 450px;
+  background: #c0c0c0;
+  border: 2px solid #ffffff;
+  box-shadow: inset -2px -2px #808080,
+              inset 2px 2px #dfdfdf,
+              4px 4px 10px rgba(0,0,0,0.4);
+  font-family: Arial, sans-serif;
+}
+
+.barra-titulo{
+  background: linear-gradient(to right, #000080, #1084d0);
+  color: white;
+  padding: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.conteudo{
+  padding: 15px;
+  color: black;
+}
 </style>
 
 </head>
@@ -60,5 +88,14 @@ body{
   <img src="100percenthuman.gif">
 </div>
   
+  <div class="janela">
+  <div class="barra-titulo">
+    Meu Computador
+  </div>
+
+  <div class="conteudo">
+    Coloque suas informações aqui...
+  </div>
+</div>
 </body>
 </html>
