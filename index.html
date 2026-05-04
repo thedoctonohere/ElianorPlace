@@ -84,27 +84,24 @@ body{
 /* balão de fala */
 .balao{
   position: absolute;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 20px;       /* ajusta a posição do balão */
+  left: 130px;     /* lado da personagem */
   background: white;
   border: 2px solid black;
   padding: 8px;
   border-radius: 8px;
   font-size: 12px;
-  white-space: nowrap;
 }
 
-/* pontinha do balão */
+/* pontinha */
 .balao::after{
   content: "";
   position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 20px;       /* altura da ponta */
+  left: -10px;     /* faz sair do lado esquerdo */
   border-width: 10px;
   border-style: solid;
-  border-color: white transparent transparent transparent;
+  border-color: transparent white transparent transparent;
 }
 </style>
 
@@ -137,7 +134,11 @@ body{
   </div>
 </div>
   <div class="elianora">
-  <div class="balao">Oi mano</div>
+  <div class="balao">
+    Olá, eu me chamo elianora<br>
+    Bem vindo!!!<br>
+    O site foi atualizado a 10h
+  </div>
   <img src="Elianora_chib.png">
 </div>
 </body>
