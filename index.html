@@ -70,6 +70,42 @@ body{
   padding: 15px;
   color: black;
 }
+  .elianora{
+  position: absolute;
+  top: 60%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.elianora img{
+  width: 120px; /* tamanho da personagem */
+}
+
+/* balão de fala */
+.balao{
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 2px solid black;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* pontinha do balão */
+.balao::after{
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
 </style>
 
 </head>
@@ -99,6 +135,10 @@ body{
     Acho que você chegou um pouco cedo mas em breve teremos atualizações aqui<br>
     fique ligado!!!
   </div>
+</div>
+  <div class="elianora">
+  <div class="balao">Oi mano</div>
+  <img src="Elianora-chib.png">
 </div>
 </body>
 </html>
