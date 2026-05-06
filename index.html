@@ -1,27 +1,205 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Welcome</title>
+  <title>Home</title>
 </head>
 <style>
 body{
   margin: 0;
-  background-image: url("Sky.gif");
+  background-image: url("Skys.gif");
   background-repeat: repeat;
   background-size: auto;
 }
-  .banners{
+.menu{
   position: fixed;
-  bottom: 0;
+  top: 20px;
   width: 100%;
   text-align: center;
-  padding: 5px;
+  padding: 2px 0;
+  border-top: 5px solid white;
+  border-bottom: 5px solid white;
+background: linear-gradient(
+  to bottom,
+  #dfdfdf,
+  #c0c0c0,
+  #a0a0a0
+);
+}
+.menu a{
+  display: inline-block;
+  margin: 15px;
+  padding: 10px 15px;
+  background: #c0c0c0;
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: Tahoma, Arial, sans-serif;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  box-shadow: 1px 1px 0 #000000;
+}
+.menu a:hover{
+  background: #dcdcdc;
+}
+.menu a:active{
+  border-color: #808080 #ffffff #ffffff #808080;
+  box-shadow: inset 1px 1px 0 #000000;
+}
+.janela{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 500px; 
+  height: 350px;
+
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+
+  box-shadow: 3px 3px 0 #000;
+  font-family: Tahoma, Arial, sans-serif;
 }
 
-.banners img{
-  width: 88px;
-  height: 31px;
-  margin: 2px;
+/* barra de título */
+.barra{
+  background: linear-gradient(to right, #000080, #1084d0);
+  color: white;
+  padding: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* conteúdo */
+.conteudo{
+  padding: 10px;
+  height: calc(100% - 30px);
+  overflow: auto;
+}
+
+/* gif principal */
+.update-principal img{
+  width: 100%;
+}
+
+/* texto */
+.update-principal p{
+  font-size: 12px;
+}
+/* área do carrossel */
+.carrossel{
+  position: relative;
+  text-align: center;
+}
+
+/* gif principal */
+.carrossel img{
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border: 2px solid black;
+}
+
+/* setas */
+.seta{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: none;
+}
+
+/* esquerda */
+.seta.esq{
+  left: 10px;
+}
+
+/* direita */
+.seta.dir{
+  right: 10px;
+}
+
+/* aparecer no hover */
+.carrossel:hover .seta{
+  display: block;
+}
+
+/* texto */
+.descricao{
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* lista de gifs */
+.lista-gifs{
+  margin-top: 10px;
+  border-top: 2px solid #808080;
+  padding-top: 5px;
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+}
+
+.lista-gifs img{
+  width: 80px;
+  cursor: pointer;
+  border: 2px solid black;
+}
+.newspop{
+  position: fixed;
+  top: 35%;
+  left: 18%;
+  transform: translate(-50%, -50%);
+
+  width: 300px;
+  height: 250px;
+
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+
+  box-shadow: 3px 3px 0 #000;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.newsforpop{
+  background: linear-gradient(to right, #000080, #1084d0);
+  color: white;
+  padding: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.newstext{
+  padding: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.about{
+  position: fixed;
+  top: 50%;
+  left: 83%;
+  transform: translate(-50%, -50%);
+
+  width: 500px;
+  height: 500px;
+
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+
+  box-shadow: 3px 3px 0 #000;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.aboutitlle{
+  background: linear-gradient(to right, #000080, #1084d0);
+  color: white;
+  padding: 5px;
+  font-size: 13px;
+  font-weight: bold;
 }
 .corda-topo,
 .corda-baixo{
@@ -29,7 +207,7 @@ body{
   left: 0;
   width: 100%;
   height: 32px; /* altura do gif */
-  background-image: url("i_just_say_hi.gif");
+  background-image: url("manglepop.gif");
   background-repeat: repeat-x;
   background-size: auto 32px;
   z-index: 999;
@@ -42,77 +220,35 @@ body{
 .corda-baixo{
   bottom: 0;
 }
-  
-  .janela{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 700px;
-  height: 450px;
-  background: #c0c0c0;
-  border: 2px solid #ffffff;
-  box-shadow: inset -2px -2px #808080,
-              inset 2px 2px #dfdfdf,
-              4px 4px 10px rgba(0,0,0,0.4);
-  font-family: Arial, sans-serif;
+ .banners{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
 }
 
-.barra-titulo{
-  background: linear-gradient(to right, #000080, #1084d0);
-  color: white;
-  padding: 6px;
-  font-weight: bold;
-  font-size: 14px;
+.banners img{
+  width: 88px;
+  height: 31px;
+  margin: 2px;
 }
-
-.conteudo{
-  padding: 15px;
-  color: black;
-}
-  .elianora{
+ .elianora{
   position: absolute;
-  top: 60%;
-  left: 70%;
+  top: 18%;
+  left: 18%;
   transform: translate(-50%, -50%);
 }
 
 .elianora img{
   width: 120px; /* tamanho da personagem */
 }
-
-/* balão de fala */
-.balao{
-  max-width: 150px;   /* controla a largura */
-  padding: 6px;
-  font-size: 12px;
-  line-height: 1.2;
-  position: absolute;
-  top: 20px;       /* ajusta a posição do balão */
-  left: 130px;     /* lado da personagem */
-  background: white;
-  border: 2px solid black;
-  padding: 8px;
-  border-radius: 8px;
-  font-size: 12px;
-}
-
-/* pontinha */
-.balao::after{
-  content: "";
-  position: absolute;
-  top: 100px;       /* altura da ponta */
-  left: -10px;     /* faz sair do lado esquerdo */
-  border-width: 10px;
-  border-style: solid;
-  border-color: transparent white transparent transparent;
-}
-</style>
-
+  </style>
 </head>
 <body>
-<div class="corda-topo"></div>
-
+  <div class="elianora">
+    <img src="Elianora_chib.png">
+  </div>
   <div class="banners">
   <img src="gorillaz_ddays.gif">
   <img src="spooky_dance.gif">
@@ -124,26 +260,111 @@ body{
   <img src="under_construction.gif">
   <img src="100percenthuman.gif">
 </div>
-  
-  <div class="janela">
-  <div class="barra-titulo">
-   Alerta!!!
+  <div class="corda-topo">
+
+  </div>
+<div class="menu">
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Artwork</a>
+  <a href="#">Redes</a>
+  <a href="#">Links</a>
+  <a href="#">News!</a>
+</div>
+<div class="about">
+  <div class="aboutitlle">
+    Sobre isso
+</div>
+  </div>
+<div class="newspop">
+<div class="newsforpop">
+    Notas de Atualização
+</div>
+<div class="newstext">
+    Bem Vindo!!!<br>
+   Estamos na versão 0.1.20 
+    </div>
+</div>
+
+<div class="janela">
+
+  <div class="barra">
+    Updates do Sistema
   </div>
 
   <div class="conteudo">
-    Bem Vindo!...<br>
-    Então...<br>
-    Acho que você chegou um pouco cedo mas em breve teremos atualizações aqui<br>
-    fique ligado!!!
+
+   <div class="carrossel">
+
+  <div class="seta esq">◀</div>
+
+  <img id="gifPrincipal" src="spooky_dance.gif">
+    
+	<div class="seta dir">▶</div>
+
+</div>
+
+<div class="descricao" id="descricao">
+      Sla cara
+  </div>
+
+<div class="lista-gifs">
+  <img src="spooky_dance.gif">
+  <img src="manglepop.gif">
+  <img src="what.gif">
+  <img src="yep.gif">
+</div>
   </div>
 </div>
-  <div class="elianora">
-  <div class="balao">
-    Olá, eu me chamo elianora
-    Bem vindo!!!
-    O site foi atualizado dia 04/05/2026
-  </div>
-  <img src="Elianora_chib.png">
-</div>
+<script>
+const gifs = [
+  {
+    img: "spooky_dance.gif",
+    texto: "Sla cara"
+  },
+  {
+    img: "manglepop.gif",
+    texto: "Outra atualização aleatória"
+  },
+  {
+    img: "what.gif",
+    texto: "Mais uma atualização aqui"
+  },
+  {
+    img: "yep.gif",
+    texto: "Almoçar o cara não é de ferro"
+  }
+];
+
+let index = 0;
+
+const img = document.getElementById("gifPrincipal");
+const desc = document.getElementById("descricao");
+
+function atualizar(){
+  img.src = gifs[index].img;
+  desc.textContent = gifs[index].texto;
+}
+
+// botão direita
+document.querySelector(".seta.dir").onclick = () => {
+  index = (index + 1) % gifs.length;
+  atualizar();
+};
+
+// botão esquerda
+document.querySelector(".seta.esq").onclick = () => {
+  index = (index - 1 + gifs.length) % gifs.length;
+  atualizar();
+};
+
+// clicar nos pequenos
+document.querySelectorAll(".lista-gifs img").forEach((el, i) => {
+  el.onclick = () => {
+    index = i;
+    atualizar();
+  };
+});
+</script>
 </body>
 </html>
