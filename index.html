@@ -70,7 +70,7 @@ background: linear-gradient(
 }
 
 .carrossel {
-  flex: 1; /* Faz o GIF ocupar o máximo de espaço e empurrar o resto para baixo */
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +83,7 @@ background: linear-gradient(
   object-fit: contain;
   border: 2px solid black;
   background: #000;
-  display: block; /* Remove espaços vazios embaixo da imagem */
+  display: block;
 }
 
 .seta {
@@ -96,23 +96,17 @@ background: linear-gradient(
   padding: 10px;
   cursor: pointer;
   z-index: 15;
-  
-  /* Esconde por padrão */
   opacity: 0; 
   transition: opacity 0.3s ease;
 }
-
-/* Mostra as setas quando o mouse passa no carrossel */
 .carrossel:hover .seta {
   opacity: 1;
 }
-
 .seta.esq {
-  left: 0; /* Cola na borda esquerda da imagem */
+  left: 0;
 }
-
 .seta.dir {
-  right: 0; /* Cola na borda direita da imagem */
+  right: 0;
 }
 
 .seta:hover {
@@ -122,14 +116,13 @@ background: linear-gradient(
   font-size: 16px;
   font-weight: bold;
   padding: 10px;
-  background: #b0b0b0; /* Cor levemente diferente para destacar */
+  background: #b0b0b0;
   border: 2px inset #ffffff;
   text-align: center;
-  margin-top: auto; /* Cola na base do conteúdo */
+  margin-top: auto;
   transition: transform 0.3s ease-in-out;
   z-index: 12;
 }
-
 .lista-gifs {
   position: absolute;
   bottom: 0;
@@ -145,37 +138,31 @@ background: linear-gradient(
   box-sizing: border-box;
   overflow-x: auto;
   z-index: 11;
-  
-  /* Começa escondida 100% para baixo */
   transform: translateY(100%);
   transition: transform 0.3s ease-in-out;
 }
 .janela:hover .descricao {
-  transform: translateY(-90px); /* Sobe a legenda */
+  transform: translateY(-90px);
 }
-
 .janela:hover .lista-gifs {
-  transform: translateY(0); /* Mostra a lista */
+  transform: translateY(0);
 }.newspop {
-  position: relative; /* Janela é a base */
+  position: relative;
   width: 90%;
   max-width: 300px;
-  background: #c0c0c0; /* O fundo cinza que vai cobrir ela */
+  background: #c0c0c0;
   border: 2px solid;
   border-color: #ffffff #808080 #808080 #ffffff;
   box-shadow: 3px 3px 0 #000;
   z-index: 10;
-  
-  /* CRUCIAL: Cria o espaço para ela ficar atrás do fundo */
   transform-style: preserve-3d; 
 }
 
 .elianora {
   position: absolute;
-  /* Posiciona ela no topo, saindo para fora da caixa */
   top: -120px; 
   left: 50%;
-  transform: translateX(-50%) translateZ(-1px); /* O -1px coloca ela atrás do fundo cinza */
+  transform: translateX(-50%) translateZ(-1px);
   pointer-events: none;
   z-index: -1; 
 }
@@ -231,7 +218,7 @@ background: linear-gradient(
   filter: brightness(1.1);
 }
 .botao:active {
-  border-color: #808080 #ffffff #ffffff #808080; /* Inverte o brilho e a sombra */
+  border-color: #808080 #ffffff #ffffff #808080;
 }
 .newstext{
   padding: 5px;
@@ -513,30 +500,21 @@ const gifs = [
     texto: "Ainda é a versão de teste desculpe :P"
   }
 ];
-
 let index = 0;
-
 const img = document.getElementById("gifPrincipal");
 const desc = document.getElementById("descricao");
-
 function atualizar(){
   img.src = gifs[index].img;
   desc.textContent = gifs[index].texto;
 }
-
-// botão direita
 document.querySelector(".seta.dir").onclick = () => {
   index = (index + 1) % gifs.length;
   atualizar();
 };
-
-// botão esquerda
 document.querySelector(".seta.esq").onclick = () => {
   index = (index - 1 + gifs.length) % gifs.length;
   atualizar();
 };
-
-// clicar nos pequenos
 document.querySelectorAll(".lista-gifs img").forEach((el, i) => {
   el.onclick = () => {
     index = i;
