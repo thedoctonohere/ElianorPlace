@@ -254,41 +254,68 @@ background: linear-gradient(
   height: 31px;
   margin: 2px;
 }
-.player{
+.player-container{
+
   position: fixed;
-  left: 20px;
+
   bottom: 20px;
-  width: 320px;
-  max-width: 90vw;
+
+  right: -320px;
+
+  display: flex;
+
+  align-items: center;
+
+  transition: 0.4s;
+
+  z-index: 99999;
+}
+.player-container.aberto{
+  right: 0;
+}
+.toggle-player{
+
+  width: 35px;
+
   height: 80px;
+
   background: #c0c0c0;
+
   border: 2px solid;
   border-color: #ffffff #808080 #808080 #ffffff;
+
   display: flex;
+
   align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  font-size: 20px;
+
+  user-select: none;
+}
+.player{
+
+  width: 320px;
+
+  height: 80px;
+
+  background: #c0c0c0;
+
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+
+  display: flex;
+
+  align-items: center;
+
   gap: 10px;
+
   padding: 8px;
+
   box-sizing: border-box;
-  perspective: 1000px;
-  z-index: 9999;
-}
-.disco{
-  width: 55px;
-  height: 55px;
-  image-rendering: pixelated;
-  animation: virar 5s infinite ease-in-out;
-  transform-style: preserve-3d;
-}
-@keyframes virar{
-  0%{
-    transform: rotateY(0deg);
-  }
-  50%{
-    transform: rotateY(180deg);
-  }
-  100%{
-    transform: rotateY(360deg);
-  }
 }
 .info-musica{
   flex: 1;
@@ -299,16 +326,33 @@ background: linear-gradient(
   padding: 5px;
   border: 2px inset #808080;
 }
-.player button{
-  width: 30px;
-  height: 30px;
-  background: #c0c0c0;
-  border: 2px solid;
-  border-color: #ffffff #808080 #808080 #ffffff;
-  cursor: pointer;
+.disco{
+
+  width: 55px;
+
+  height: 55px;
+
+  min-width: 55px;
+
+  image-rendering: pixelated;
+
+  animation: virar 5s ease-in-out infinite;
+
+  transform-style: preserve-3d;
 }
-.player button:active{
-  border-color: #808080 #ffffff #ffffff #808080;
+@keyframes virar{
+
+  0%{
+    transform: perspective(500px) rotateY(0deg);
+  }
+
+  50%{
+    transform: perspective(500px) rotateY(180deg);
+  }
+
+  100%{
+    transform: perspective(500px) rotateY(360deg);
+  }
 }
 .layout-topo{
   width: 100%;
@@ -407,18 +451,6 @@ background: linear-gradient(
       </div>
     </div>
   </div>
-<div class="player">
-  <img src="redoin.jpg" class="disco" id="capa">
-  <div class="info-musica">
-    <marquee id="nomeMusica">
-      JerryTerry - ReDoin.mp3
-    </marquee>
-  </div>
-  <button id="anterior">◀◀</button>
-  <button id="play">▶</button>
-  <button id="proxima">▶▶</button>
-  <audio id="musica"></audio>
-</div>
 <div class="banners">
   <img src="gorillaz_ddays.gif">
   <img src="spooky_dance.gif">
@@ -429,6 +461,31 @@ background: linear-gradient(
   <img src="binema.png">
   <img src="under_construction.gif">
   <img src="100percenthuman.gif">
+</div>
+<div class="player-container" id="playerContainer">
+
+  <div class="toggle-player" id="togglePlayer">
+    ◀
+  </div>
+
+  <div class="player">
+
+    <img src="redoin.jpg" class="disco" id="capa">
+
+    <div class="info-musica">
+      <marquee id="nomeMusica">
+        Elianora - Lost Memories.mp3
+      </marquee>
+    </div>
+
+    <button id="anterior">◀◀</button>
+    <button id="play">▶</button>
+    <button id="proxima">▶▶</button>
+
+    <audio id="musica"></audio>
+
+  </div>
+
 </div>
 <script>
 const playlist = [
@@ -448,7 +505,7 @@ const playlist = [
     capa: "nostalgia.jpg"
   }
 ];
-let musicindex = 0;
+let index = 0;
 const audio = document.getElementById("musica");
 const nome = document.getElementById("nomeMusica");
 const capa = document.getElementById("capa");
@@ -492,6 +549,28 @@ audio.onended = () => {
   proximaMusica();
 };
 atualizarPlayer();
+const togglePlayer = document.getElementById("togglePlayer");
+const playerContainer = document.getElementById("playerContainer");
+
+let aberto = false;
+
+togglePlayer.onclick = () => {
+
+  aberto = !aberto;
+
+  if(aberto){
+
+    playerContainer.classList.add("aberto");
+
+    togglePlayer.innerHTML = "▶";
+  }
+  else{
+
+    playerContainer.classList.remove("aberto");
+
+    togglePlayer.innerHTML = "◀";
+  }
+};
 </script>
 <script>
 const gifs = [
