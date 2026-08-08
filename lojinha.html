@@ -10,7 +10,6 @@
       background-repeat: repeat;
       background-size: auto;
       font-family: Tahoma, Arial, sans-serif;
-      /* Ajuste para a página rolar normalmente */
       padding-top: 80px; 
       padding-bottom: 40px;
     }
@@ -84,7 +83,6 @@
       transform: translateY(2px);
     }
 
-    /* Efeito de caixa afundada para a imagem na vitrine */
     .img-container {
       background-color: #fff;
       border: 2px solid;
@@ -116,6 +114,14 @@
       overflow: hidden;
     }
 
+    /* Novo estilo para o preço na vitrine (antes de clicar) */
+    .product-price-card {
+      font-size: 14px;
+      font-weight: bold;
+      color: #008000;
+      margin: 8px 0 5px 0;
+    }
+
     /* ====== FUNDO ESCURO DO POP-UP (OVERLAY) ====== */
     .modal-overlay {
       position: fixed;
@@ -123,8 +129,8 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: rgba(0, 0, 0, 0.7); /* Deixa o fundo escuro */
-      display: none; /* Escondido por padrão */
+      background-color: rgba(0, 0, 0, 0.7); 
+      display: none; 
       justify-content: center;
       align-items: center;
       z-index: 999;
@@ -151,7 +157,7 @@
       align-items: center;
     }
 
-    /* SEU CSS DOS BOTÕES DA JANELA */
+    /* BOTÕES DA JANELA */
     .botoes-janela {
       display: flex;
       align-items: center;
@@ -159,7 +165,7 @@
     }
 
     .botao {
-      width: 40px;
+      width: 18px;
       height: 18px;
       background: #c0c0c0;
       border: 2px solid;
@@ -209,11 +215,10 @@
     .popup-price {
       font-size: 20px;
       font-weight: bold;
-      color: #008000; /* Verde clássico */
+      color: #008000; 
       margin: 10px 0;
     }
 
-    /* Botão de Comprar (Mercado Livre / Shopee) */
     .btn-comprar {
       display: block;
       margin: 15px auto 5px auto;
@@ -234,13 +239,13 @@
 </head>
 <body>
 
-  <!-- MENU SUPERIOR ATUALIZADO -->
+  <!-- MENU SUPERIOR -->
   <div class="menu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="artwork.html">Gallery</a>
     <a href="redes.html">Projects</a>
-    <a href="lojinha.html">store</a> <!-- Item da Loja Adicionado -->
+    <a href="loja.html">Store</a>
     <a href="links.html">Social</a>
   </div>
 
@@ -254,15 +259,19 @@
       </div>
       <p class="product-title">Camiseta Retrô</p>
       <p class="product-desc">Camiseta de algodão com estampa em pixel art.</p>
+      <!-- Preço na vitrine -->
+      <p class="product-price-card">R$ 49,90</p>
     </div>
 
     <!-- PRODUTO 2 -->
-    <div class="product-card" onclick="abrirProduto('Adesivos Windows 95', 'R$ 15,00', 'foto_quebrada2.png', 'https://shopee.com.br/seu-produto')">
+    <div class="product-card" onclick="abrirProduto('Adesivos 90s', 'R$ 15,00', 'foto_quebrada2.png', 'https://shopee.com.br/seu-produto')">
       <div class="img-container">
         <img src="foto_quebrada2.png" alt="Produto 2">
       </div>
       <p class="product-title">Adesivos 90s</p>
       <p class="product-desc">Cartela de adesivos inspirada em sistemas antigos.</p>
+      <!-- Preço na vitrine -->
+      <p class="product-price-card">R$ 15,00</p>
     </div>
 
     <!-- PRODUTO 3 -->
@@ -272,11 +281,13 @@
       </div>
       <p class="product-title">Mousepad Disquete</p>
       <p class="product-desc">Mousepad quadrado perfeito para o seu setup.</p>
+      <!-- Preço na vitrine -->
+      <p class="product-price-card">R$ 35,50</p>
     </div>
 
   </div>
 
-  <!-- FUNDO ESCURO E POP-UP DO PRODUTO (Invisível até clicar) -->
+  <!-- FUNDO ESCURO E POP-UP DO PRODUTO -->
   <div class="modal-overlay" id="overlayProduto">
     
     <div class="retro-popup">
@@ -285,14 +296,13 @@
         
         <div class="botoes-janela">
           <div class="botao">
-            <img src="minimizar.png" alt="Minimizar">
+            <img src="SEU_MINIMIZAR.png" alt="Minimizar">
           </div>
           <div class="botao">
-            <img src="maximizar.png" alt="Expandir">
+            <img src="SEU_EXPANDIR.png" alt="Expandir">
           </div>
-          <!-- O botão de fechar aciona o JavaScript para sumir com o pop-up -->
           <div class="botao fechar" onclick="fecharProduto()">
-            <img src="fechar.png" alt="Fechar">
+            <img src="SEU_FECHAR.png" alt="Fechar">
           </div>
         </div>
       </div>
@@ -307,21 +317,18 @@
 
   </div>
 
-  <!-- SCRIPT PARA A MÁGICA ACONTECER -->
+  <!-- SCRIPT -->
   <script>
     function abrirProduto(titulo, preco, imagem, link) {
-      // Puxa as informações que você passou lá no "onclick" do card
       document.getElementById("popupTitulo").innerText = titulo + ".exe";
       document.getElementById("popupPreco").innerText = preco;
       document.getElementById("popupImg").src = imagem;
       document.getElementById("popupLink").href = link;
       
-      // Mostra o fundo escuro e o pop-up
       document.getElementById("overlayProduto").style.display = "flex";
     }
 
     function fecharProduto() {
-      // Esconde o fundo escuro e o pop-up
       document.getElementById("overlayProduto").style.display = "none";
     }
   </script>
