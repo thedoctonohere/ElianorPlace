@@ -80,34 +80,45 @@
       align-items: center;
     }
 
-    /* QUADRADINHOS DOS BOTÕES DA JANELA */
-    .window-controls {
+    /* ====== CSS DOS BOTÕES (SEU CÓDIGO) ====== */
+    .botoes-janela {
       display: flex;
+      align-items: center;
       gap: 2px;
     }
 
-    .window-btn {
-      background-color: #c0c0c0;
+    .botao {
+      width: 18px; /* Ajustei a largura para 18px para ficar quadrado igual janela antiga, mas se quiser retangular é só voltar pra 40px! */
+      height: 18px;
+      background: #c0c0c0;
       border: 2px solid;
-      border-color: #ffffff #808080 #808080 #ffffff; /* Borda 3D saltada */
-      padding: 1px 2px;
+      border-color: #ffffff #808080 #808080 #ffffff;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
       cursor: pointer;
     }
 
-    .window-btn:active {
-      border-color: #808080 #ffffff #ffffff #808080; /* Borda afundada ao clicar */
-      padding: 2px 1px 0px 3px; /* Empurra o ícone levemente para baixo/direita dando efeito de clique */
+    .fechar {
+      background: #c05050;
+      margin-left: 2px; /* Dá um espacinho extra pro botão fechar, opcional */
     }
 
-    .window-btn img {
-      width: 12px;  /* Tamanho ajustado para caber no quadradinho */
-      height: 12px;
-      display: block;
+    .botao img {
+      width: 10px;
+      height: 10px;
       image-rendering: pixelated;
     }
+
+    .botao:hover {
+      filter: brightness(1.1);
+    }
+
+    .botao:active {
+      border-color: #808080 #ffffff #ffffff #808080;
+    }
+    /* ========================================= */
 
     /* Conteúdo do Pop-up */
     .popup-content {
@@ -178,18 +189,19 @@
     <div class="title-bar">
       <span>meus_links.exe</span>
       
-      <!-- Quadradinhos dos botões da janela com os PNGs dentro -->
-      <div class="window-controls">
-        <div class="window-btn">
-          <img src="minimizar.png" alt="Minimizar">
+      <!-- Seus botões com o seu CSS aplicado -->
+      <div class="botoes-janela">
+        <div class="botao">
+          <img src="SEU_MINIMIZAR.png" alt="Minimizar">
         </div>
-        <div class="window-btn">
-          <img src="maximizar.png" alt="Expandir">
+        <div class="botao">
+          <img src="SEU_EXPANDIR.png" alt="Expandir">
         </div>
-        <div class="window-btn" style="margin-left: 2px;">
-          <img src="fechar.png" alt="Fechar">
+        <div class="botao fechar">
+          <img src="SEU_FECHAR.png" alt="Fechar">
         </div>
       </div>
+
     </div>
 
     <div class="popup-content">
