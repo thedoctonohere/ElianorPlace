@@ -16,7 +16,7 @@
       min-height: 100vh;
     }
 
-    /* Menu Superior */
+    /* Menu Superior Original */
     .menu {
       position: fixed;
       top: 20px;
@@ -65,14 +65,14 @@
       border-color: #ffffff #808080 #808080 #ffffff;
       box-shadow: 2px 2px 0px #000;
       padding: 3px;
-      margin-top: 80px; /* Evita sobrepor o menu superior */
+      margin-top: 80px; 
     }
 
     /* Barra de Título da Janela */
     .title-bar {
       background: linear-gradient(90deg, #000080, #1084d0);
       color: white;
-      padding: 3px 6px;
+      padding: 3px 4px 3px 6px;
       font-weight: bold;
       font-size: 13px;
       display: flex;
@@ -80,18 +80,33 @@
       align-items: center;
     }
 
-    /* Botões decorativos (Minimizar, Expandir, Fechar) */
+    /* QUADRADINHOS DOS BOTÕES DA JANELA */
     .window-controls {
       display: flex;
-      gap: 3px;
-      align-items: center;
+      gap: 2px;
     }
 
-    .control-icon {
-      width: 16px;  /* Ajuste a largura do PNG se necessário */
-      height: 14px; /* Ajuste a altura do PNG se necessário */
-      display: block;
+    .window-btn {
+      background-color: #c0c0c0;
+      border: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff; /* Borda 3D saltada */
+      padding: 1px 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
+    }
+
+    .window-btn:active {
+      border-color: #808080 #ffffff #ffffff #808080; /* Borda afundada ao clicar */
+      padding: 2px 1px 0px 3px; /* Empurra o ícone levemente para baixo/direita dando efeito de clique */
+    }
+
+    .window-btn img {
+      width: 12px;  /* Tamanho ajustado para caber no quadradinho */
+      height: 12px;
+      display: block;
+      image-rendering: pixelated;
     }
 
     /* Conteúdo do Pop-up */
@@ -132,8 +147,8 @@
     }
 
     .link-item img {
-      width: 48px;  /* Ajuste a largura das fotos dos links */
-      height: 48px; /* Ajuste a altura das fotos dos links */
+      width: 48px;  
+      height: 48px; 
       object-fit: contain;
       image-rendering: pixelated;
     }
@@ -163,11 +178,17 @@
     <div class="title-bar">
       <span>meus_links.exe</span>
       
-      <!-- PNGs dos botões de janela -->
+      <!-- Quadradinhos dos botões da janela com os PNGs dentro -->
       <div class="window-controls">
-        <img src="minimizar.png" alt="Minimizar" class="control-icon">
-        <img src="maximizar.png" alt="Expandir" class="control-icon">
-        <img src="fechar.png" alt="Fechar" class="control-icon">
+        <div class="window-btn">
+          <img src="minimizar.png" alt="Minimizar">
+        </div>
+        <div class="window-btn">
+          <img src="maximizar.png" alt="Expandir">
+        </div>
+        <div class="window-btn" style="margin-left: 2px;">
+          <img src="fechar.png" alt="Fechar">
+        </div>
       </div>
     </div>
 
