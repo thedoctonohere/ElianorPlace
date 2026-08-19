@@ -46,9 +46,19 @@ background: linear-gradient(
   border-color: #808080 #ffffff #ffffff #808080;
   box-shadow: inset 1px 1px 0 #000000;
 }
+.fantasminha {
+  position: fixed; /* Faz ele flutuar sobre a tela, ignorando a rolagem */
+  top: 0;
+  left: 0;
+  font-size: 50px; /* Tamanho do fantasma. Se for imagem, use width/height */
+  z-index: 9999; /* Garante que ele fique por cima de todos os elementos */
+  pointer-events: none; /* Impede que ele atrapalhe o clique do mouse em links */
+  user-select: none; /* Impede que o usuário selecione o fantasma */
+}
   </style>
 </head>
 <body>
+  <div id="Boo">👻</div>
 <div class="menu">
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
@@ -58,5 +68,56 @@ background: linear-gradient(
   <a href="lojinha.html">Store</a>
   <a href="news.html">News!</a>
 </div>
+  <script>
+    const fantasma = document.getElementById('fantasminha');
+
+// Posição inicial do fantasma
+let posX = 50;
+let posY = 50;
+
+// Velocidade de movimento (quanto maior, mais rápido)
+let velocidadeX = 2.5;
+let velocidadeY = 2.5;
+
+function animarFantasma() {
+  // Pega o tamanho atual da tela do usuário
+  const larguraTela = window.innerWidth;
+  const alturaTela = window.innerHeight;
+  
+  // Pega o tamanho do fantasma para ele não sair para fora da tela antes de bater
+  const larguraFantasma = fantasma.offsetWidth;
+  const alturaFantasma = fantasma.offsetHeight;
+
+  // Atualiza a posição
+  posX += velocidadeX;
+  posY += velocidadeY;
+
+  // Bateu na DIREITA ou ESQUERDA?
+  if (posX + larguraFantasma >= larguraTela) {
+    velocidadeX = -Math.abs(velocidadeX); // Inverte a direção para a esquerda
+    fantasma.style.transform = "scaleX(1)"; // Vira o fantasma para a esquerda
+  } else if (posX <= 0) {
+    velocidadeX = Math.abs(velocidadeX); // Inverte a direção para a direita
+    fantasma.style.transform = "scaleX(-1)"; // Vira o fantasma para a direita (espelhado)
+  }
+
+  // Bateu EMBAIXO ou EM CIMA?
+  if (posY + alturaFantasma >= alturaTela) {
+    velocidadeY = -Math.abs(velocidadeY); // Sobe
+  } else if (posY <= 0) {
+    velocidadeY = Math.abs(velocidadeY); // Desce
+  }
+
+  // Aplica as novas posições no CSS
+  fantasma.style.left = posX + 'px';
+  fantasma.style.top = posY + 'px';
+
+  // Chama a função novamente para criar um loop contínuo de animação
+  requestAnimationFrame(animarFantasma);
+}
+
+// Inicia a animação assim que a página carregar
+window.onload = animarFantasma;
+  </script>
 </body>
 </html>
