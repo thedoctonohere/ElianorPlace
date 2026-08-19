@@ -95,15 +95,16 @@
         posX += velocidadeX;
         posY += velocidadeY;
 
-        if (posX + larguraFantasma >= larguraTela) {
-          posX = larguraTela - larguraFantasma;
-          velocidadeX = -Math.abs(velocidadeX); 
-          fantasma.style.transform = "scaleX(1)"; 
-        } else if (posX <= 0) {
-          posX = 0;
-          velocidadeX = Math.abs(velocidadeX); 
-          fantasma.style.transform = "scaleX(-1)"; 
-        }
+       
+    if (posX + larguraFantasma >= larguraTela) {
+      posX = larguraTela - larguraFantasma; 
+      velocidadeX = -Math.abs(velocidadeX);   
+      fantasma.style.transform = "scaleX(-1)"; 
+    } else if (posX <= 0) {
+      posX = 0; 
+      velocidadeX = Math.abs(velocidadeX); 
+      fantasma.style.transform = "scaleX(1)"; 
+    }
 
         if (posY + alturaFantasma >= alturaTela) {
           posY = alturaTela - alturaFantasma;
