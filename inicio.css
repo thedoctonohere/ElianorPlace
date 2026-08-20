@@ -370,7 +370,7 @@ background: linear-gradient(
       top: 90px; 
       left: 0;
       width: 100%;
-      height: 15px; /* Ajuste para a altura do seu gif "hehe" */
+      height: 58px; /* Ajuste para a altura do seu gif "hehe" */
       
       /* É AQUI QUE ELE ENTRA! */
       background-image: url('hehe.gif'); 
