@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="news.css">
+</head>
+<body>
+
+  <div class="newspop">
+    <div class="barra">
+      <div class="titulo">Updates do Sistema</div>
+      <div class="botoes-janela">
+        <div class="botao">
+          <img src="minimizar.png" alt="Minimizar">
+        </div>
+        <div class="botao">
+          <img src="maximizar.png" alt="Maximizar">
+        </div>
+        <div class="botao fechar">
+          <img src="fechar.png" alt="Fechar">
+        </div>
+      </div>
+    </div>
+    <div class="newstext">
+      Bem Vindo!!!<br>
+      Esta é minha primeira vez fazendo um site então vai ter muitos erros, principalmente com compatibilidade com
+      outros tipos de telas. Espero que goste, não esqueça de passar nas minhas redes sociais.
+    </div>
+  </div>
+
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="artwork.html">Gallery</a>
+    <a href="redes.html">Projects</a>
+    <a href="links.html">Social</a>
+    <a href="lojinha.html">Store</a>
+    <a href="news.html">News!</a>
+  </div>
+
+  <div class="player-container" id="playerContainer">
+    <div class="toggle-player" id="togglePlayer">◀</div>
+
+    <div class="player">
+      <img src="redoin.jpg" class="disco" id="capa" alt="Capa do álbum">
+
+      <div class="info-musica">
+        <marquee id="nomeMusica">Elianora - Lost Memories.mp3</marquee>
+      </div>
+
+      <button id="anterior">◀◀</button>
+      <button id="play">▶</button>
+      <button id="proxima">▶▶</button>
+
+      <audio id="musica"></audio>
+    </div>
+  </div>
+
+  <script src="news.js"></script>
+</body>
+</html>

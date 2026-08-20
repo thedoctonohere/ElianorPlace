@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+body{
+  margin: 0;
+  background-image: url("Sky.gif");
+  background-repeat: repeat;
+  background-size: auto;
+}
+.menu{
+  position: fixed;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  padding: 2px 0;
+  border-top: 5px solid white;
+  border-bottom: 5px solid white;
+background: linear-gradient(
+  to bottom,
+  #dfdfdf,
+  #c0c0c0,
+  #a0a0a0
+);
+}
+.menu a{
+  display: inline-block;
+  margin: 15px;
+  padding: 10px 15px;
+  background: #c0c0c0;
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: Tahoma, Arial, sans-serif;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  box-shadow: 1px 1px 0 #000000;
+}
+.menu a:hover{
+  background: #dcdcdc;
+}
+.menu a:active{
+  border-color: #808080 #ffffff #ffffff #808080;
+  box-shadow: inset 1px 1px 0 #000000;
+}
+.art-title{
+
+  margin-top: 150px;
+
+  text-align: center;
+
+  font-size: 28px;
+
+  font-family: monospace;
+
+  color: white;
+
+  text-shadow: 2px 2px black;
+}
+
+.galeria{
+
+  width: 95%;
+
+  margin: 140px auto 40px auto;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 25px;
+}
+
+.item-arte{
+
+  width: 260px;
+
+  background: #c0c0c0;
+
+  border: 2px solid;
+  border-color:
+  #ffffff #808080 #808080 #ffffff;
+
+  box-shadow: 3px 3px 0 #000;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.item-arte:hover{
+
+  transform: scale(1.02);
+}
+.barra-arquivo{
+
+  height: 28px;
+
+  background:
+  linear-gradient(
+  to right,
+  #000080,
+  #1084d0
+  );
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 5px;
+
+  font-size: 12px;
+
+  font-family: Tahoma;
+
+  font-weight: bold;
+}
+
+.botoes-mini{
+
+  display: flex;
+
+  gap: 2px;
+}
+
+.botao-mini{
+
+  width: 22px;
+
+  height: 18px;
+
+  background: #c0c0c0;
+
+  border: 2px solid;
+  border-color:
+  #ffffff #808080 #808080 #ffffff;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.fechar-mini{
+  background: #c05050;
+}
+
+.botao-mini img{
+
+  width: 9px;
+
+  height: 9px;
+
+  image-rendering: pixelated;
+}
+
+.arte{
+
+  width: 100%;
+
+  display: block;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.arte:hover{
+
+  transform: scale(1.02);
+}
+ .popup{
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.92);
+
+  display: none;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 999999;
+}
+
+.popup.ativo{
+  display: flex;
+}
+
+/* botão X */
+
+#fecharPopup{
+
+  position: fixed;
+
+  top: 20px;
+
+  right: 20px;
+
+  width: 42px;
+
+  height: 42px;
+
+  background: #c05050;
+
+  color: white;
+
+  font-size: 22px;
+
+  font-weight: bold;
+
+  border: 2px solid;
+  border-color:
+  #ffffff #808080 #808080 #ffffff;
+
+  cursor: pointer;
+
+  z-index: 1000000;
+}
+
+#fecharPopup:active{
+
+  border-color:
+  #808080 #ffffff #ffffff #808080;
+}
+
+.imagem-container{
+
+  width: 100vw;
+
+  height: 100vh;
+
+  overflow: auto;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+}
+
+#imagemGrande{
+
+  max-width: 95%;
+
+  max-height: 95%;
+
+  object-fit: contain;
+}
+  .layout-topo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 140px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+  </style>
+</head>
+<body>
+<div class="menu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="artwork.html">Gallery</a>
+  <a href="redes.html">Projects</a>
+  <a href="links.html">Social</a>
+  <a href="lojinha.html">Store</a>
+  <a href="news.html">News!</a>
+</div>
+<div class="layout-topo">
+  <div class="art-title">
+ 
+</div>
+
+<div class="galeria">
+
+  <div class="item-arte">
+
+    <div class="barra-arquivo">
+
+      <span>Elianora_hum.png</span>
+
+      <div class="botoes-mini">
+
+        <div class="botao-mini">
+          <img src="minimizar.png">
+        </div>
+
+        <div class="botao-mini">
+          <img src="maximizar.png">
+        </div>
+
+        <div class="botao-mini fechar-mini">
+          <img src="fechar.png">
+        </div>
+
+      </div>
+
+    </div>
+
+    <img src="hum.png" class="arte">
+
+  </div>
+
+</div>
+<div class="popup" id="popup">
+
+  <button id="fecharPopup">
+    X
+  </button>
+
+  <div class="imagem-container">
+    <img id="imagemGrande">
+  </div>
+
+</div>
+</div>
+<script>
+const popup = document.getElementById("popup");
+const imagemGrande = document.getElementById("imagemGrande");
+const fecharPopup = document.getElementById("fecharPopup");
+
+const itens = document.querySelectorAll(".item-arte");
+
+itens.forEach(function(item){
+
+  item.addEventListener("click", function(){
+
+    const img = item.querySelector(".arte");
+
+    imagemGrande.src = img.src;
+
+    popup.classList.add("ativo");
+  });
+
+});
+
+fecharPopup.addEventListener("click", function(){
+
+  popup.classList.remove("ativo");
+});
+
+popup.addEventListener("click", function(e){
+
+  if(e.target === popup){
+
+    popup.classList.remove("ativo");
+  }
+});
+</script>
+</body>
+</html>

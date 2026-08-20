@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      margin: 0;
+      background-image: url("Sky.gif");
+      background-repeat: repeat;
+      background-size: auto;
+    }
+    .menu{
+      position: fixed;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      padding: 2px 0;
+      border-top: 5px solid white;
+      border-bottom: 5px solid white;
+      background: linear-gradient(
+        to bottom,
+        #dfdfdf,
+        #c0c0c0,
+        #a0a0a0
+      );
+    }
+    .menu a{
+      display: inline-block;
+      margin: 15px;
+      padding: 10px 15px;
+      background: #c0c0c0;
+      color: black;
+      text-decoration: none;
+      font-size: 15px;
+      font-family: Tahoma, Arial, sans-serif;
+      border: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+      box-shadow: 1px 1px 0 #000000;
+    }
+    .menu a:hover{
+      background: #dcdcdc;
+    }
+    .menu a:active{
+      border-color: #808080 #ffffff #ffffff #808080;
+      box-shadow: inset 1px 1px 0 #000000;
+    }
+    
+    /* AQUI: Mudamos de #fantasminha para #Boo */
+    #Boo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-size: 50px;
+      z-index: 9999;
+      pointer-events: none;
+      user-select: none;
+      width: max-content; 
+    }
+    .cordinha {
+      position: fixed;
+      top: 90px; 
+      left: 0;
+      width: 100%;
+      height: 58px;
+      background-image: url('hehe.gif'); 
+      background-repeat: repeat-x; 
+      z-index: 9990;
+    }
+  </style>
+</head>
+<body>
+  
+  <img id="Boo" src="Ghost.gif" alt="Fantasma Boo">
+
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="artwork.html">Gallery</a>
+    <a href="redes.html">Projects</a>
+    <a href="links.html">Social</a>
+    <a href="lojinha.html">Store</a>
+    <a href="news.html">News!</a>
+  </div>
+  <div class="cordinha"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      
+      // AQUI: O JavaScript agora procura pelo "Boo"
+      const fantasma = document.getElementById('Boo');
+
+      let posX = 50;
+      let posY = 50;
+
+      let velocidadeX = 2.5;
+      let velocidadeY = 2.5;
+
+      function animarFantasma() {
+        const larguraTela = window.innerWidth;
+        const alturaTela = window.innerHeight;
+        
+        const larguraFantasma = fantasma.offsetWidth;
+        const alturaFantasma = fantasma.offsetHeight;
+
+        posX += velocidadeX;
+        posY += velocidadeY;
+
+       
+    if (posX + larguraFantasma >= larguraTela) {
+      posX = larguraTela - larguraFantasma; 
+      velocidadeX = -Math.abs(velocidadeX);   
+      fantasma.style.transform = "scaleX(-1)"; 
+    } else if (posX <= 0) {
+      posX = 0; 
+      velocidadeX = Math.abs(velocidadeX); 
+      fantasma.style.transform = "scaleX(1)"; 
+    }
+
+        if (posY + alturaFantasma >= alturaTela) {
+          posY = alturaTela - alturaFantasma;
+          velocidadeY = -Math.abs(velocidadeY); 
+        } else if (posY <= 0) {
+          posY = 0;
+          velocidadeY = Math.abs(velocidadeY); 
+        }
+
+        fantasma.style.left = posX + 'px';
+        fantasma.style.top = posY + 'px';
+
+        requestAnimationFrame(animarFantasma);
+      }
+
+      animarFantasma();
+    });
+  </script>
+</body>
+</html>
